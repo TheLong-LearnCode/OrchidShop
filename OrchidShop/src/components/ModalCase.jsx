@@ -8,13 +8,13 @@ export default function ModalCase({ setIsOpen, orchid }) {
             <div className="modal-content">
                 <h4>Video for {orchid.name}</h4>
                 <p>
-                    <iframe width="100%" height="400px" src={orchid.clip} title={orchid.name} frameBorder="0"
+                    <iframe width="100%" height="400px" src={orchid.clip} title={orchid.name}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowFullScreen></iframe>
                 </p>
             </div>
             <div className="modal-footer">
-                <a href="" className="modal-close red-text">Close</a>
+                <a href="" className="modal-close text-danger">Close</a>
             </div>
         </div>
     </div>

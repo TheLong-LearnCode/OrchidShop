@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { ThemeContext } from './ThemeContext';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const { theme, toggle, dark } = useContext(ThemeContext)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -9,7 +11,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="container" style={{ marginTop: '108px' }}>
+    <div className="container" style={{ paddingTop: '100px', color: theme.color}}>
       <h2 className="text-center">Contact Us</h2>
       {submitted && <div className="alert alert-success">Your message has been sent successfully!</div>}
       <div className="row mt-4">

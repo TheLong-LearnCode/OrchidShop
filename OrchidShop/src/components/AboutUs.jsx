@@ -5,7 +5,7 @@ import { ThemeContext } from './ThemeContext'
 export default function AboutUs() {
   const { theme, toggle, dark } = useContext(ThemeContext)
   return (
-    <div style={{ marginTop: '100px' }}>
+    <div style={{ paddingTop: '100px' }}>
       <div className="container text-center my-5 pb-2" style={{ backgroundColor: theme.backgroundColor, color: theme.color, borderRadius: '10px' }}>
         <h1 className="display-4 pt-2">FLOWER SHOP ROMA</h1>
         <img src="https://homedecorplus.vn/wp-content/uploads/bab-orchid-shop-nhe-nhang-va-than-thien-homedecorplus-10a.jpg" alt="Flower Shop Roma" className="img-fluid rounded my-4" />
