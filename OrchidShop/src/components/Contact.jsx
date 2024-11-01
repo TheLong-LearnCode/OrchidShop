@@ -1,14 +1,36 @@
 import React, { useContext, useState } from 'react'
 import { ThemeContext } from './ThemeContext';
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import { Alert, Button, Form } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
-  const { theme, toggle, dark } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  }
+  const formik = useFormik({
+    initialValues:{
+        email: '',
+        name: '',
+        phone: 0,
+        message: '',
+    },
+    onSubmit:  values=>{
+        alert(JSON.stringify(values));
+        setSubmitted(true);
+     },
+     validationSchema: Yup.object({
+        name: Yup.string().required("Required.").min(2, "Must be 2 characters or more"),
+        email: Yup.string().required("Required.").email("Invalid email"),
+        phone: Yup.number().integer().typeError("Please enter a valid number"),
+        message: Yup.string().required("Required.").min(10, "Must be 10 characters or more"),
+    }),
+
+
+})
+
 
   return (
     <div className="container" style={{ paddingTop: '100px', color: theme.color}}>
@@ -24,21 +46,41 @@ export default function Contact() {
           </div>
 
 
-          <form className="contact-form" onSubmit={handleSubmit} >
-            <div className="form-group text-start">
-              <label htmlFor="name">Name:</label>
-              <input type="text" id="name" name="name" className="form-control" required />
-            </div>
-            <div className="form-group text-start">
-              <label htmlFor="email">Email:</label>
-              <input type="email" id="email" name="email" className="form-control" required />
-            </div>
-            <div className="form-group text-start">
-              <label htmlFor="message">Message:</label>
-              <textarea id="message" name="message" className="form-control" required></textarea>
-            </div>
-            <button type="submit" className="btn" style={{ background: 'linear-gradient(90deg, rgba(253,29,29,1) 73%, rgba(252,176,69,1) 100%)', color: 'white' }}>Send Message</button>
-          </form>
+          <form onSubmit={formik.handleSubmit} className='text-start'>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Your email..."
+                    name='email' value={formik.values.email} onChange={formik.handleChange}
+                    />
+                    {formik.errors.email && (<Alert variant='warning'>{formik.errors.email}</Alert>)}
+                </Form.Group>
+                <Form.Group>
+                <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" placeholder="Your name..."
+                    name='name' value={formik.values.name}  onChange={formik.handleChange}
+                    />
+             {formik.errors.name && (<Alert variant='warning'>{formik.errors.name}</Alert>)}
+
+                </Form.Group>
+                <Form.Group>
+                <Form.Label>Phone Number</Form.Label>
+                    <Form.Control type="number" placeholder="Your phone..."
+                    name='phone' value={formik.values.phone} onChange={formik.handleChange}
+                    />
+                    {formik.errors.phone && (<Alert variant='warning'>{formik.errors.phone}</Alert>)}
+                </Form.Group>
+                <Form.Group className='mb-3'>
+                <Form.Label>Message</Form.Label>
+                <Form.Control as="textarea" rows={3} name='message'
+                value={formik.values.message} onChange={formik.handleChange}
+                />
+                {formik.errors.message && (<Alert variant='warning'>{formik.errors.message}</Alert>)}
+                </Form.Group>
+                <Form.Group className='mb-3'>
+                    <Button variant='dark' type='submit'>Submit</Button>
+                </Form.Group>
+                </form>
+
         </div>
 
         <div className="map col-md-7">

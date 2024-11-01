@@ -13,26 +13,41 @@ import { useContext } from 'react'
 import { ThemeContext } from './components/ThemeContext'
 import Dashboard from './components/Dashboard'
 import Login from './components/Login'
+import 'react-toastify/dist/ReactToastify.css';
+import { AuthProvider } from './context/AuthContext.jsx'
+import ProtectedRoute from './route/ProtectedRoute.jsx'
+import Profile from './components/Profile.jsx'
+
 
 
 function App() {
   const { theme, toggle, dark } = useContext(ThemeContext);
 
   return (
-    <div style={{backgroundColor: theme.backgroundColor}}>
-      <Header />
-      <Routes>
-        <Route path='/' element={<MainContent />} />
-        <Route path='/details/:id' element={<OrchidDetails />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/news' element={<News />} />
-        <Route path='/about' element={<AboutUs />} />
-        <Route path='/natural' element={<Natural/>} />
-        <Route path='/dashboard' element={<Dashboard/>} />
-        <Route path='/login' element={<Login/>} />
-      </Routes>
-      <Footer />
-    </div>
+    <AuthProvider>
+      <div style={{ backgroundColor: theme.backgroundColor }}>
+        <Header />
+        <Routes>
+          <Route path='/' element={<MainContent />} />
+          <Route path='/details/:id' element={<OrchidDetails />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/news' element={<News />} />
+          <Route path='/about' element={<AboutUs />} />
+          <Route path='/natural' element={<Natural />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute >
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+        </Routes>
+        <Footer />
+      </div>
+    </AuthProvider>
   )
 }
 

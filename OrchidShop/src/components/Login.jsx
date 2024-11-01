@@ -1,25 +1,46 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ThemeContext } from './ThemeContext'
-import { auth, provider } from './LoginGoogle/config'
-import { signInWithPopup } from 'firebase/auth'
+import { auth } from './LoginGoogle/config'
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import MainContent from './MainContent'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext'
+import { toast } from 'react-toastify'
 
 export default function Login() {
     const navigate = useNavigate();
     const { theme, toggle, dark } = useContext(ThemeContext)
-    const [value, setValue] = useState('')
+    const { setUser } = useContext(AuthContext);
 
-    const handleLogin = () => {
-        signInWithPopup(auth, provider).then((data) => {
-            setValue(data.user.email)
-            localStorage.setItem('email', data.user.email)
-        })
-    }
+    const handleGoogleLogin = () => {
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({
+          prompt: "select_account",
+        });
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            const userInfo = {
+              name: result.user.displayName,
+              email: result.user.email,
+              photoURL: result.user.photoURL,
+            };
+            console.log("User Info:", userInfo);
+    
+            // Set user in AuthContext
+            setUser(result.user);
+    
+            // Show success toast
+            toast.success("Login successful!");
+    
+            // Redirect to home page
+            navigate('/');
+          })
+          .catch((error) => {
+            console.error("Error signing in with Google:", error);
+            toast.error("Google login failed. Please try again.");
+          });
+      };
 
-    useEffect(() => {
-        setValue(localStorage.getItem('email'))
-    })
 
     return (
         <div style={{
@@ -28,17 +49,10 @@ export default function Login() {
             display: 'flex',
             justifyContent: 'center',
         }}>
-            {value ?
-                <>
-                    {navigate('/')}
-                    {window.location.reload()}
-                </>
-
-                :
                 <div style={{ textAlign: 'center' }}>
                     <h1 style={{ color: theme.color, marginBottom: '20px' }}>Login</h1>
                     <button
-                        onClick={handleLogin}
+                        onClick={handleGoogleLogin}
                         style={{
                             backgroundColor: '#ffff',
                             color: 'black',
@@ -63,7 +77,6 @@ export default function Login() {
                         Login with Google
                     </button>
                 </div>
-            }
         </div>
     )
 }

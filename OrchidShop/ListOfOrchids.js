@@ -1,14 +1,14 @@
 export const Orchids = [
   {
-      id: '1',
-      name: 'Lycaste Aromatica',
-      rating: 4.7,
-      isSpecial: true,
-      image: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Lycaste_aromatica_%28Graham%29_Lindl._Edwards%27s_Bot._Reg._29%28Misc.%29_16_%281843%29_%2842309967611%29.jpg',
-      color: 'yellow',
-      origin: 'Guatemala',
-      category: 'Lycaste',
-      clip: 'https://www.youtube.com/embed/Ma_4Dj_Y2J0' 
+    id: '1',
+    name: 'Lycaste Aromatica',
+    rating: 4.7,
+    isSpecial: true,
+    image: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Lycaste_aromatica_%28Graham%29_Lindl._Edwards%27s_Bot._Reg._29%28Misc.%29_16_%281843%29_%2842309967611%29.jpg',
+    color: 'yellow',
+    origin: 'Guatemala',
+    category: 'Lycaste',
+    clip: 'https://www.youtube.com/embed/Ma_4Dj_Y2J0'
   },
   {
     id: '2',
@@ -19,7 +19,7 @@ export const Orchids = [
     color: 'white',
     origin: 'Indonesia',
     category: 'Phalaenopsis',
-    clip: 'https://www.youtube.com/embed/uagixsDjiVA' 
+    clip: 'https://www.youtube.com/embed/uagixsDjiVA'
   },
   {
     id: '3',
@@ -30,7 +30,7 @@ export const Orchids = [
     color: 'purple',
     origin: 'Himalayas',
     category: 'Dendrobium',
-    clip: 'https://www.youtube.com/embed/fZ33eM2JuaY' 
+    clip: 'https://www.youtube.com/embed/fZ33eM2JuaY'
   },
   {
     id: '4',
@@ -41,7 +41,7 @@ export const Orchids = [
     color: 'green',
     origin: 'China',
     category: 'Cymbidium',
-    clip: 'https://www.youtube.com/embed/hhzVZ_hgINg' 
+    clip: 'https://www.youtube.com/embed/hhzVZ_hgINg'
   },
   {
     id: '5',
@@ -52,7 +52,7 @@ export const Orchids = [
     color: 'blue',
     origin: 'India',
     category: 'Vanda',
-    clip: 'https://www.youtube.com/embed/hhzVZ_hgINg' 
+    clip: 'https://www.youtube.com/embed/hhzVZ_hgINg'
   },
   {
     id: '6',
@@ -63,7 +63,7 @@ export const Orchids = [
     color: 'brown',
     origin: 'Central America',
     category: 'Oncidium',
-    clip: 'https://www.youtube.com/embed/gx0wws_XVZQ' 
+    clip: 'https://www.youtube.com/embed/gx0wws_XVZQ'
   },
   {
     id: '7',
@@ -74,7 +74,7 @@ export const Orchids = [
     color: 'orange',
     origin: 'Brazil',
     category: 'Miltonia',
-    clip: 'https://www.youtube.com/embed/oQm-RSFmdyM' 
+    clip: 'https://www.youtube.com/embed/oQm-RSFmdyM'
   },
   {
     id: '8',
@@ -85,7 +85,7 @@ export const Orchids = [
     color: 'green',
     origin: 'Vietnam',
     category: 'Paphiopedilum',
-    clip: 'https://www.youtube.com/embed/l6yWRZG5_us' 
+    clip: 'https://www.youtube.com/embed/l6yWRZG5_us'
   },
   {
     id: '9',
@@ -96,7 +96,7 @@ export const Orchids = [
     color: 'blue',
     origin: 'Brazil',
     category: 'Zygopetalum',
-    clip: 'https://www.youtube.com/embed/vooXf9P7aZc' 
+    clip: 'https://www.youtube.com/embed/vooXf9P7aZc'
   },
   {
     id: '10',
@@ -107,7 +107,7 @@ export const Orchids = [
     color: 'white',
     origin: 'Mexico',
     category: 'Brassavola',
-    clip: 'https://www.youtube.com/embed/ZL7q6voUF_s' 
+    clip: 'https://www.youtube.com/embed/ZL7q6voUF_s'
   },
   {
     id: '11',
@@ -118,7 +118,7 @@ export const Orchids = [
     color: 'pink',
     origin: 'Brazil',
     category: 'Cattleya',
-    clip: 'https://www.youtube.com/embed/Q5dBYHu5EfE' 
+    clip: 'https://www.youtube.com/embed/Q5dBYHu5EfE'
   },
   {
     id: '12',
@@ -129,7 +129,7 @@ export const Orchids = [
     color: 'red',
     origin: 'Ecuador',
     category: 'Phragmipedium',
-    clip: 'https://www.youtube.com/embed/G8IUSTkI07c' 
+    clip: 'https://www.youtube.com/embed/G8IUSTkI07c'
   },
   {
     id: '13',
@@ -140,7 +140,7 @@ export const Orchids = [
     color: 'orange',
     origin: 'Peru',
     category: 'Masdevallia',
-    clip: 'https://www.youtube.com/embed/06ztJCRMBJg' 
+    clip: 'https://www.youtube.com/embed/06ztJCRMBJg'
   },
   {
     id: '14',
@@ -151,7 +151,7 @@ export const Orchids = [
     color: 'purple',
     origin: 'Mexico',
     category: 'Encyclia',
-    clip: 'https://www.youtube.com/embed/fn9VOzoQqQI' 
+    clip: 'https://www.youtube.com/embed/fn9VOzoQqQI'
   },
   {
     id: '15',
@@ -162,7 +162,7 @@ export const Orchids = [
     color: 'white',
     origin: 'Malaysia',
     category: 'Bulbophyllum',
-    clip: 'https://www.youtube.com/embed/eQBC7ZwoBKY' 
+    clip: 'https://www.youtube.com/embed/eQBC7ZwoBKY'
   },
   {
     id: '16',
@@ -173,7 +173,7 @@ export const Orchids = [
     color: 'white',
     origin: 'Nepal',
     category: 'Coelogyne',
-    clip: 'https://www.youtube.com/embed/-_RyIlVFvQE' 
+    clip: 'https://www.youtube.com/embed/-_RyIlVFvQE'
   }
 ]
 
@@ -188,7 +188,22 @@ export const Orchids = [
     "color": "yellow",
     "origin": "Guatemala",
     "category": "Lycaste",
-    "clip": "https://www.youtube.com/embed/Ma_4Dj_Y2J0"
+    "clip": "https://www.youtube.com/embed/Ma_4Dj_Y2J0",
+    "feedback": [
+      {
+        "rating": 5,
+        "comment": "Awesome orchid!!!",
+        "author": "Hacker-Lo@gmail.com",
+        "date": "2024-10-16T17:57:28.556094Z"
+      },
+      {
+        "rating": 2,
+        "comment": "No comment",
+        "author": "master-of-Hacker-Lo@gmail.com",
+        "date": "2024-11-16T17:57:28.556094Z"
+      }
+    ]
+
   },
   {
     "id": "2",
@@ -199,7 +214,8 @@ export const Orchids = [
     "color": "white",
     "origin": "Indonesia",
     "category": "Phalaenopsis",
-    "clip": "https://www.youtube.com/embed/uagixsDjiVA"
+    "clip": "https://www.youtube.com/embed/uagixsDjiVA",
+    "feedback": []
   },
   {
     "id": "3",
@@ -210,7 +226,8 @@ export const Orchids = [
     "color": "purple",
     "origin": "Himalayas",
     "category": "Dendrobium",
-    "clip": "https://www.youtube.com/embed/fZ33eM2JuaY"
+    "clip": "https://www.youtube.com/embed/fZ33eM2JuaY",
+    "feedback": []
   },
   {
     "id": "4",
@@ -221,7 +238,8 @@ export const Orchids = [
     "color": "green",
     "origin": "China",
     "category": "Cymbidium",
-    "clip": "https://www.youtube.com/embed/hhzVZ_hgINg"
+    "clip": "https://www.youtube.com/embed/hhzVZ_hgINg",
+    "feedback": []
   },
   {
     "id": "5",
@@ -232,7 +250,8 @@ export const Orchids = [
     "color": "blue",
     "origin": "India",
     "category": "Vanda",
-    "clip": "https://www.youtube.com/embed/hhzVZ_hgINg"
+    "clip": "https://www.youtube.com/embed/hhzVZ_hgINg",
+    "feedback": []
   },
   {
     "id": "6",
@@ -243,7 +262,8 @@ export const Orchids = [
     "color": "brown",
     "origin": "Central America",
     "category": "Oncidium",
-    "clip": "https://www.youtube.com/embed/gx0wws_XVZQ"
+    "clip": "https://www.youtube.com/embed/gx0wws_XVZQ",
+    "feedback": []
   },
   {
     "id": "7",
@@ -254,7 +274,8 @@ export const Orchids = [
     "color": "orange",
     "origin": "Brazil",
     "category": "Miltonia",
-    "clip": "https://www.youtube.com/embed/oQm-RSFmdyM"
+    "clip": "https://www.youtube.com/embed/oQm-RSFmdyM",
+    "feedback": []
   },
   {
     "id": "8",
@@ -265,7 +286,8 @@ export const Orchids = [
     "color": "green",
     "origin": "Vietnam",
     "category": "Paphiopedilum",
-    "clip": "https://www.youtube.com/embed/l6yWRZG5_us"
+    "clip": "https://www.youtube.com/embed/l6yWRZG5_us",
+    "feedback": []
   },
   {
     "id": "9",
@@ -276,7 +298,8 @@ export const Orchids = [
     "color": "blue",
     "origin": "Brazil",
     "category": "Zygopetalum",
-    "clip": "https://www.youtube.com/embed/vooXf9P7aZc"
+    "clip": "https://www.youtube.com/embed/vooXf9P7aZc",
+    "feedback": []
   },
   {
     "id": "10",
@@ -287,7 +310,8 @@ export const Orchids = [
     "color": "white",
     "origin": "Mexico",
     "category": "Brassavola",
-    "clip": "https://www.youtube.com/embed/ZL7q6voUF_s"
+    "clip": "https://www.youtube.com/embed/ZL7q6voUF_s",
+    "feedback": []
   },
   {
     "id": "11",
@@ -298,7 +322,8 @@ export const Orchids = [
     "color": "pink",
     "origin": "Brazil",
     "category": "Cattleya",
-    "clip": "https://www.youtube.com/embed/Q5dBYHu5EfE"
+    "clip": "https://www.youtube.com/embed/Q5dBYHu5EfE",
+    "feedback": []
   },
   {
     "id": "12",
@@ -309,7 +334,8 @@ export const Orchids = [
     "color": "red",
     "origin": "Ecuador",
     "category": "Phragmipedium",
-    "clip": "https://www.youtube.com/embed/G8IUSTkI07c"
+    "clip": "https://www.youtube.com/embed/G8IUSTkI07c",
+    "feedback": []
   },
   {
     "id": "13",
@@ -320,7 +346,8 @@ export const Orchids = [
     "color": "orange",
     "origin": "Peru",
     "category": "Masdevallia",
-    "clip": "https://www.youtube.com/embed/06ztJCRMBJg"
+    "clip": "https://www.youtube.com/embed/06ztJCRMBJg",
+    "feedback": []
   },
   {
     "id": "14",
@@ -331,7 +358,8 @@ export const Orchids = [
     "color": "purple",
     "origin": "Mexico",
     "category": "Encyclia",
-    "clip": "https://www.youtube.com/embed/fn9VOzoQqQI"
+    "clip": "https://www.youtube.com/embed/fn9VOzoQqQI",
+    "feedback": []
   },
   {
     "id": "15",
@@ -342,7 +370,8 @@ export const Orchids = [
     "color": "white",
     "origin": "Malaysia",
     "category": "Bulbophyllum",
-    "clip": "https://www.youtube.com/embed/eQBC7ZwoBKY"
+    "clip": "https://www.youtube.com/embed/eQBC7ZwoBKY",
+    "feedback": []
   },
   {
     "id": "16",
@@ -353,6 +382,7 @@ export const Orchids = [
     "color": "white",
     "origin": "Nepal",
     "category": "Coelogyne",
-    "clip": "https://www.youtube.com/embed/-_RyIlVFvQE"
+    "clip": "https://www.youtube.com/embed/-_RyIlVFvQE",
+    "feedback": []
   }
 ]

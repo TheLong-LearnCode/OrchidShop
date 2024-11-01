@@ -1,16 +1,33 @@
 import { useContext, useState } from 'react'
 import { ThemeContext } from './ThemeContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Dropdown } from 'react-bootstrap'
+import { getAuth, signOut } from "firebase/auth";
+import { AuthContext } from '../context/AuthContext';
+import { toast } from 'react-toastify';
 
 export default function Header() {
     const { theme, toggle, dark } = useContext(ThemeContext)
     const [isNavCollapsed, setIsNavCollapsed] = useState(true)
     const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed)
+    const { user, loading, setUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    
     const handleLogout = () => {
-        localStorage.clear();
-        window.location.reload();
-    }
+        const auth = getAuth();
+        signOut(auth)
+          .then(() => {
+            console.log("User signed out");
+            setUser(null);
+            navigate('/');
+            toast.success("Log out successfully")
+          })
+          .catch((error) => {
+            console.error("Error signing out:", error);
+          });
+      };
+
+      console.log("Current user:", user);
     return (
         <div>
             <header className='sticky-header fixed-top' style={{ boxShadow: '10px 10px 15px 5px rgba(0, 0, 0, 0.2)' }}>
@@ -71,8 +88,9 @@ export default function Header() {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                {localStorage.getItem('email') ?
+                                {user ?
                                     <>
+                                        <Dropdown.Item className='text-center'><Link style={{ textDecoration: 'none', color: 'black' }} to={'/profile'}>Profile</Link></Dropdown.Item>
                                         <Dropdown.Item className='text-center' onClick={handleLogout}>Log out</Dropdown.Item>
                                         <Dropdown.Item className='text-center'><Link style={{ textDecoration: 'none', color: 'black' }} to={'/dashboard'}>Dashboard</Link></Dropdown.Item>
                                     </>

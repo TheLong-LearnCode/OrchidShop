@@ -9,8 +9,6 @@ export default function Content({ orchidData }) {
   const [orchid, setOrchid] = useState({})
 
   return (
-    <div className="container" style={{ backgroundColor: theme.backgroundColor, paddingTop: '100px' }}>
-      <h1 className="text-center mb-4" style={{ color: theme.color, paddingTop: '20px' }}>Orchid Collection</h1>
       <div className="row">
         {orchidData.map((orchid) => (
           <div className="col-md-3" key={orchid.id}>
@@ -38,6 +36,5 @@ export default function Content({ orchidData }) {
           </div>
         ))}
       </div>
-    </div>
   )
 }

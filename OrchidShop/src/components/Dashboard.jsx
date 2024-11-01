@@ -4,16 +4,18 @@ import { Button, Dropdown, Form, Modal } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function Dashboard() {
     const { theme } = useContext(ThemeContext)
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [orchids, setOrchids] = useState([]);
     const [show, setShow] = useState(false);
     const [editingOrchid, setEditingOrchid] = useState(null)
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(!localStorage.getItem('email')){
+        if (!localStorage.getItem('email')) {
             navigate('/login')
         }
     })
@@ -55,6 +57,7 @@ export default function Dashboard() {
             isSpecial: false,
         },
         onSubmit: values => {
+            setIsSubmitting(true);
             if (editingOrchid) {
                 fetch(`${baseurl}/${editingOrchid.id}`, {
                     method: 'PUT',
@@ -67,7 +70,10 @@ export default function Dashboard() {
                     .then(() => {
                         handleClose()
                         fetchOrchids()
-                    })
+                        toast.success('Update Orchid successfully');
+                    }).finally(() => {
+                        setIsSubmitting(false);
+                      });
             } else {
                 // Add new orchid
                 fetch(baseurl, {
@@ -81,16 +87,16 @@ export default function Dashboard() {
                     .then(() => {
                         handleClose()
                         fetchOrchids()
+                        toast.success('Add new Orchid successfully');
                     })
-            }
+            } 
         },
         validationSchema: Yup.object({
-            name: Yup.string().required("Required.").min(2, "Must be 2 characters or more"),
-            category: Yup.string().required("Required.").min(3, "Must be 3 characters or more"),
-            image: Yup.string().required("Required.").min(8, "Must be 8 characters or more"),
-            color: Yup.string().required("Required.").min(2, "Must be 2 characters or more"),
-            origin: Yup.string().required("Required.").min(2, "Must be 2 characters or more"),
-            clip: Yup.string().required("Required.").min(8, "Must be 8 characters or more"),
+            name: Yup.string().required("Required.").min(2, "Name must be 2 characters or more"),
+            image: Yup.string().url("Invalid link image").required("Required."),
+            color: Yup.string().required("Required.").min(2, "Color must be 2 characters or more"),
+            origin: Yup.string().required("Required.").min(2, "Origin must be 2 characters or more"),
+            clip: Yup.string().url("Invalid link clip").required("Required."),
         })
     })
 
@@ -99,6 +105,7 @@ export default function Dashboard() {
         fetch(`${baseurl}/${id}`, { method: 'DELETE' })
             .then(() => {
                 fetchOrchids()
+                toast.success('Delete successfully')
             })
             .catch(err => console.error(err))
     }
@@ -176,53 +183,82 @@ export default function Dashboard() {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        <Form.Group className="mb-3">
+                        <Form.Group className="mb-2">
                             <Form.Label>Name</Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="Orchid's name"
                                 name='name' value={formik.values.name} onChange={formik.handleChange}
                             />
+                            {formik.errors.name && formik.dirty && formik.touched.name && (
+                                <Form.Text className='text-danger'>
+                                    {formik.errors.name}
+                                </Form.Text>
+                            )}
                         </Form.Group>
-                        <Form.Group className="mb-3" >
+                        <Form.Group className="mb-2" >
                             <Form.Label>Image</Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="Orchid's image"
                                 name='image' value={formik.values.image} onChange={formik.handleChange}
                             />
+                            {formik.errors.image && formik.dirty && formik.touched.image && (
+                                <Form.Text className='text-danger'>
+                                    {formik.errors.image}
+                                </Form.Text>
+                            )}
                         </Form.Group>
-                        <Form.Group className="mb-3">
+                        <Form.Group className="mb-2">
                             <Form.Label>Color</Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="Orchid's color"
                                 name='color' value={formik.values.color} onChange={formik.handleChange}
                             />
+                            {formik.errors.color && formik.dirty && formik.touched.color && (
+                                <Form.Text className='text-danger'>
+                                    {formik.errors.color}
+                                </Form.Text>
+                            )}
                         </Form.Group>
-                        <Form.Group className="mb-3">
+                        <Form.Group className="mb-2">
                             <Form.Label>Origin</Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="Orchid's origin"
                                 name='origin' value={formik.values.origin} onChange={formik.handleChange}
                             />
+                            {formik.errors.origin && formik.dirty && formik.touched.origin && (
+                                <Form.Text className='text-danger'>
+                                    {formik.errors.origin}
+                                </Form.Text>
+                            )}
                         </Form.Group>
-                        <Form.Group className="mb-3">
+                        <Form.Group className="mb-2">
                             <Form.Label>Category</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Orchid's category"
-                                name='category' value={formik.values.category} onChange={formik.handleChange}
-                            />
+                            <Form.Select aria-label="Default select example" name='category'
+                                value={formik.values.category} onChange={formik.handleChange}
+                            >
+                                {orchids.map((oc) => (
+                                    <option key={oc.id} value={oc.category}>{oc.category}</option>
+                                ))}
+
+                            </Form.Select>
                         </Form.Group>
-                        <Form.Group className="mb-3">
+
+                        <Form.Group className="mb-2">
                             <Form.Label>Clip</Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="Orchid's clip"
                                 name='clip' value={formik.values.clip} onChange={formik.handleChange}
                             />
+                            {formik.errors.clip && formik.dirty && formik.touched.clip && (
+                                <Form.Text className='text-danger'>
+                                    {formik.errors.clip}
+                                </Form.Text>
+                            )}
                         </Form.Group>
                         <Form.Group>
                             <Form.Check
@@ -238,7 +274,7 @@ export default function Dashboard() {
                     <Button variant="danger" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="dark" onClick={formik.handleSubmit}>
+                    <Button variant="dark" onClick={formik.handleSubmit} disabled={isSubmitting}>
                         Save
                     </Button>
                 </Modal.Footer>
