@@ -110,6 +110,7 @@ export default function OrchidDetails() {
                                 <Rate 
                                     value={userRating} 
                                     onChange={setUserRating}
+                                    tooltips={['Very bad', 'Bad', 'Okay', 'Good', 'Very good']}
                                 />
                             </div>
                             <div className="mb-3">

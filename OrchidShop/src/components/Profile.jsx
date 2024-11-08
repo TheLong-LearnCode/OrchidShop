@@ -56,10 +56,10 @@ export default function Profile() {
                                         <div className="d-flex flex-column align-items-center">
                                             <div className="mb-4">
                                                 <img
-                                                    src={user?.photoURL || 'https://via.placeholder.com/150'}
+                                                    src={user?.photoURL || 'https://static-00.iconduck.com/assets.00/user-icon-2046x2048-9pwm22pp.png'}
                                                     alt="avatar"
                                                     className="rounded-circle"
-                                                    style={{ width: '150px', height: '150px', objectFit: 'cover' }}
+                                                    style={{ width: '100px', height: '100px', objectFit: 'cover' }}
                                                 />
                                             </div>
                                             <div className="w-100">

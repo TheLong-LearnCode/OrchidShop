@@ -11,7 +11,7 @@ export default function Content({ orchidData }) {
   return (
       <div className="row">
         {orchidData.map((orchid) => (
-          <div className="col-md-3" key={orchid.id}>
+          <div className="col-lg-3 col-md-4" key={orchid.id}>
             <div className="card mb-3" style={{ width: '100%', minHeight: '200px', backgroundColor: theme.backgroundColor, borderColor: theme.color }}>
               <img src={orchid.image} className="card-img-top" alt={orchid.name} style={{ width: '100%', objectFit: 'cover', height: '190px' }} />
               <div className="card-body" style={{color: theme.color}}>
